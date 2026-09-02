@@ -1,0 +1,16 @@
+[project]
+name = "social"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Markus", email = "markus.ellingsgaard@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "jupyterlab>=4.6.3",
+    "networkx>=3.6.1",
+]
+
+[tool.uv]
+package = false
