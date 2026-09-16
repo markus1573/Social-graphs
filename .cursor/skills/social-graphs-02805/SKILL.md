@@ -4,9 +4,10 @@ description: >-
   DTU 02805 Social Graphs and Interactions (Fall 2026, Sune Lehmann) workspace
   skill. Use for weekly exercises, Jupyter/NetworkX notebooks, Marvel playground
   data, go-nuts posts, Learn/Builder/Tool modes, tests, and the group project.
-  Trigger on uge folders, NetworkX, degree distributions, adjacency matrices,
-  Wikipedia crawls, AI_METHODS.md, 02806-social-graph-project, group (go-nuts),
-  course-site work, finish for the day, wrap up, Learn catch-up, or test review.
+  Trigger on uge folders, Essentials, traditional exercises, NetworkX, degree
+  distributions, adjacency matrices, Wikipedia crawls, AI_METHODS.md,
+  02806-social-graph-project, group (go-nuts), course-site work, finish for the
+  day, wrap up, Learn catch-up, or test review.
 ---
 
 # 02805 Social Graphs and Interactions
@@ -21,7 +22,7 @@ Student workspace for [02805](https://sunelehmann.com/socialgraphs2026-web/). Fl
 
 Always fetch the relevant week page (and data page, if needed) before writing code or answers. Do not rely on memory of unreleased weeks.
 
-Details, formulas, Marvel checksums, and the week-1 test box: [reference.md](reference.md).
+Details, formulas, Marvel checksums, and test boxes: [reference.md](reference.md). Default weekly work is the **Essentials** flow below.
 
 ## Workspace
 
@@ -38,11 +39,27 @@ The nested folder is gitignored in the personal repo so it is never nested-commi
 - Personal work lives in `uge1/` … `uge13/` as Jupyter notebooks. One week, one folder.
 - Env: Python ≥3.13, `uv`, JupyterLab, NetworkX. Add deps with `uv add` in the folder you are actually working in.
 - Notebooks are the workspace: analyses, exercise answers, experiments. Do not dump explanations into extra markdown files unless asked.
+- **Math in notebook markdown: `$…$` inline, `$$…$$` display. Never `\(…\)` or `\[…\]`** — Jupyter’s MathJax ignores those and renders the raw backslashes. (Chat replies are the opposite: Cursor wants `\(…\)` / `\[…\]`. Do not copy chat math into a cell unconverted.)
+- Writing a notebook as raw JSON: every LaTeX backslash must be doubled (`$\\alpha$`), or the file will not parse. Safer: build/edit cells with the notebook edit tool, or a small `json` script, rather than hand-writing `.ipynb` text.
 - Frozen course data belongs in the week folder (e.g. `uge1/week1_nodes.tsv`), not the personal repo root.
 
-## The three modes
+## Default weekly flow: Essentials
 
-Every exercise is labelled. Detect the label from the week page and behave accordingly.
+The student studies from the week page’s **Essentials** box (and **On the test**), not by grinding every labelled item on the page. Traditional exercises: the agent poses questions; the student solves; help is allowed.
+
+When starting a week, or when they ask for Essentials / traditional practice:
+
+1. Fetch the week page. Treat **Essentials** + **On the test** as the syllabus. Atlas chapters named on the page are backup, not extra homework.
+2. Write an original practice set into that week’s notebook (`ugeN/exN.ipynb`) as **markdown**. Numbered problems, small drawn graphs, short calculations, one-sentence “why” items. Hit every Essential; match the closed-book skills in **On the test**.
+3. Do **not** paste the course’s Learn/Builder/Tool wording. Write variants (different graphs, different numbers, same ideas). Goodies and stretch explorables stay off this set unless they ask.
+4. Leave empty cells under each problem for their work. In chat, work one problem (or a tight cluster) at a time; the notebook is the problem sheet.
+5. **Help is allowed** on Essentials items: definitions, which idea to use, hints, checking their reasoning, a nudge if they stall. Do not dump a full worked solution on first ask. After a real attempt, you may finish the algebra with them. If they want only a check, say what is right and where it broke.
+6. Keep it exam-shaped: pen-and-paper first. NetworkX is for checking *after* they have written the rings / sums / fractions, not instead of that.
+7. Official page exercises (1.3, 3.5, go-nuts, …) still exist. Run them only if they ask to do the course items. Then use the three modes below. Live Learn hands-off does **not** apply to Essentials-flow practice.
+
+## The three modes (official week-page exercises)
+
+Every official exercise is labelled. Detect the label from the week page and behave accordingly.
 
 ### Learn (live = hands-off; end of day = catch-up)
 
@@ -125,9 +142,10 @@ Closed book, ~60 min, ~25 MC, transfer not trivia. Test 1 = weeks 1–4; Test 2 
 
 ## Agent checklist
 
-1. Fetch the week page.
-2. Confirm mode. Live Learn: no solutions. End-of-day / catch-up: finish all remaining Learn items as study notes in the notebook.
-3. Load data the way the data page specifies; assert `n`, `m`, isolates.
-4. Separate in/out/undirected measurements when the graph is directed.
-5. Plot what the page asks; sanity-check against published numbers.
-6. Leave a short “what I verified by hand” note on Builder work; on Learn catch-up, leave a catch-up heading plus closed-book takeaways.
+1. Fetch the week page. Default path: **Essentials** practice in `ugeN/exN.ipynb`, not the full exercise list.
+2. If they are on Essentials: questions in markdown (`$…$` math, never `\(…\)`), help allowed, no full dump on first ask, pen-and-paper before NetworkX.
+3. If they asked for official items: confirm mode. Live Learn: no solutions. End-of-day / catch-up: finish all remaining Learn items as study notes in the notebook.
+4. Load data the way the data page specifies; assert `n`, `m`, isolates.
+5. Separate in/out/undirected measurements when the graph is directed.
+6. Plot what the page asks; sanity-check against published numbers.
+7. Leave a short “what I verified by hand” note on Builder work; on Learn catch-up, leave a catch-up heading plus closed-book takeaways.

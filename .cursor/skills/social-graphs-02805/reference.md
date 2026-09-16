@@ -107,6 +107,22 @@ Binning is not for fitting power-law slopes. Cumulative distribution arrives in 
 | 1.7 | Learn | Layout = decoration vs data |
 | 1.8 | Builder | Group GitHub Pages + go-nuts post on frozen Marvel data — work in `02806-social-graph-project/` (own GitHub remote, already connected) |
 
+## Essentials practice (workspace flow)
+
+Default weekly work is an original problem sheet in `ugeN/exN.ipynb`, aligned to that week’s Essentials / On the test — not a copy of the course Learn items. Help is allowed; full solutions only after an attempt.
+
+## Week 3 (16 Sep 2026) — formulas
+
+Undirected, connected, distances from BFS:
+
+- Eccentricity of \(i\): farthest distance from \(i\). Diameter = max eccentricity; radius = min; center = nodes attaining the radius.
+- Closeness: \(C_i^{\mathrm{close}} = (n-1)/\sum_{j\ne i} d_{ij}\). Harmonic: \(C_i^{\mathrm{harm}} = \frac{1}{n-1}\sum_{j\ne i} 1/d_{ij}\) with \(1/\infty=0\).
+- Betweenness: \(b_i = \sum_{s\ne i\ne t} \sigma_{st}(i)/\sigma_{st}\). NetworkX also divides by \((n-1)(n-2)/2\) (undirected) to put it in \([0,1]\).
+- Eigenvector: \(x_i = \frac{1}{\lambda}\sum_j A_{ij}x_j\). PageRank (\(\alpha=0.85\)): \(\mathrm{PR}_i = (1-\alpha)/n + \alpha\sum_{j\to i}\mathrm{PR}_j/k_j^{\mathrm{out}}\).
+- Undirected random-walk stationary: \(\pi_i = k_i/2m\).
+- Degree assortativity \(r\): Pearson correlation of endpoint degrees over links. Star: \(r=-1\). \(k_{nn}(k)\) rising/falling/flat = assortative / disassortative / none. Heavy tails force some \(r<0\) even under the degree-preserving null (structural disassortativity).
+- \(k\)-clique has \(k(k-1)/2\) links. Marvel undirected giant: \(\langle d\rangle=2.67\), diameter 6, radius 3, center Spider-Man; SCC size 229; \(r\approx-0.105\) vs shuffle \(\approx-0.118\pm0.009\); clique number 8.
+
 ## On the test (week 1)
 
 Closed book, student should be able to:
@@ -122,9 +138,21 @@ Closed book, student should be able to:
 - Drawing: data vs layout; one conclusion the picture invites that the data does not support
 - Node property vs edge property vs network property
 
+## On the test (week 3)
+
+Closed book, student should be able to:
+
+- Walk vs path vs shortest path vs distance; BFS rings; eccentricity, diameter, radius, center
+- Directed distances, unreachable pairs, weakly vs strongly connected
+- Closeness and harmonic from a distance list; why harmonic on directed/disconnected graphs
+- Betweenness by counting \(\sigma_{st}\) (including two shortest paths); high at low degree / low at high degree
+- Eigenvector equation + iteration; PageRank one step, dangling nodes, teleport, \(\alpha\to 1\)
+- Match a question to degree / closeness / betweenness / PageRank; spot a bad “finding” vs the degree-preserving null
+- Sign of \(r\) and \(k_{nn}(k)\); structural disassortativity; cliques, \(k(k-1)/2\), maximal vs largest
+
 ## Readings (local)
 
-- Atlas: `sna_book.pdf` at the personal-repo root (Coscia, 2nd ed., ~916 pages). Week-2 assigned: Ch. 16 (Random Graphs, printed ~237), Ch. 12.1–12.2, Ch. 17.1–17.3, Ch. 18.1, Ch. 19.1.
+- Atlas: `sna_book.pdf` at the personal-repo root (Coscia, 2nd ed., ~916 pages). Week-2 assigned: Ch. 16 (Random Graphs, printed ~237), Ch. 12.1–12.2, Ch. 17.1–17.3, Ch. 18.1, Ch. 19.1. Week 3: Ch. 10, 13, 14 (closeness, betweenness, eigenvector/PageRank), 8 optional, 11.1, 31.1, 30.2, 12.3.
 - Prefer this file over a web scrape. Atlas uses \(|V|\) for \(n\) and \(\bar k\) for average degree; the course uses \(n\) and \(\langle k\rangle\). For large \(n\), \(\bar k = |V|p \approx p(n-1)\).
 
 ## Links worth knowing
