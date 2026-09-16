@@ -6,7 +6,7 @@ description: >-
   data, go-nuts posts, Learn/Builder/Tool modes, tests, and the group project.
   Trigger on uge folders, NetworkX, degree distributions, adjacency matrices,
   Wikipedia crawls, AI_METHODS.md, 02806-social-graph-project, group (go-nuts),
-  or course-site work.
+  course-site work, finish for the day, wrap up, Learn catch-up, or test review.
 ---
 
 # 02805 Social Graphs and Interactions
@@ -17,7 +17,7 @@ Student workspace for [02805](https://sunelehmann.com/socialgraphs2026-web/). Fl
 **Read first:** https://sunelehmann.com/socialgraphs2026-web/the-new-way.html
 **Week N:** `https://sunelehmann.com/socialgraphs2026-web/weeks/weekN` (HTML: `weeks/weekN.html`)
 **Data:** https://sunelehmann.com/socialgraphs2026-web/data
-**Book:** Michele Coscia, *The Atlas for the Aspiring Network Scientist* (2nd ed.). Week 1 also points at Barabási *Network Science* Ch. 1–2.
+**Book:** Michele Coscia, *The Atlas for the Aspiring Network Scientist* (2nd ed.). Local copy at the personal-repo root: `sna_book.pdf` (also https://www.networkatlas.eu/). Week 1 also points at Barabási *Network Science* Ch. 1–2 (`http://networksciencebook.com/`). When summarizing or citing Atlas chapters, read from `sna_book.pdf` rather than guessing.
 
 Always fetch the relevant week page (and data page, if needed) before writing code or answers. Do not rely on memory of unreleased weeks.
 
@@ -44,14 +44,23 @@ The nested folder is gitignored in the personal repo so it is never nested-commi
 
 Every exercise is labelled. Detect the label from the week page and behave accordingly.
 
-### Learn (AI hands-off)
+### Learn (live = hands-off; end of day = catch-up)
 
-Test material: concepts, hand calculations, interpretation. Doing these with a machine is pointless.
+Test material: concepts, hand calculations, interpretation. Tests are closed-book; the student still needs a readable trail of the items they skipped.
 
-- Do **not** write the answers, fill the notebook cells, or compute the numerical results for the student.
-- Do **not** “just check” by producing the full solution.
-- Allowed: clarify definitions, point at the relevant section/explorable, quiz, hint at *which* idea to use, review an answer the student already wrote.
-- If they ask you to solve a Learn item: refuse briefly, offer a Socratic hint or a practice variant with different numbers, and remind them the closed-book tests draw from this mode.
+**While studying (default):** do **not** write answers, fill cells, or compute the numerical results. Do **not** “just check” by producing the full solution. Allowed: definitions, the relevant Atlas/week section, quizzes, which idea to use, review of an answer they already wrote. If they ask to solve a Learn item mid-session: refuse briefly, hint or give a practice variant with different numbers.
+
+**End of day / catch-up:** when they say they are done for today, wrapping up, out of time, or want remaining Learn filled for test prep — complete **every unfinished Learn exercise** for the week(s) they were on (fetch the week page; scan the notebook for empty/partial Learn cells). Goal: something they can read before the test, not a dump of numbers.
+
+Write catch-up into the week notebook (`ugeN/`), marked as catch-up so they know they did not do it live. For each Learn item:
+
+- Restate what is being asked in one line.
+- Work the solution with the same reasoning they would need closed-book (definitions → method → numbers → what would change if the representation changed).
+- Tie it to that week’s “On the test” box (transfer, not trivia). Do not harvest or store actual test items.
+- Prefer markdown + small worked examples over unexplained code. If a figure or NetworkX check helps them *see* the idea, include it and say what to remember without the notebook.
+- If they already answered part of an item, keep their work and only fill the gaps.
+
+Do not skip Learn items because they are “meant to be done by hand.” Catch-up exists because they will not have time to finish everything before the tests.
 
 ### Builder (full agentic mode)
 
@@ -90,17 +99,35 @@ Group / GitHub Pages work belongs in **`group (go-nuts)`** (`02806-social-graph-
 
 Weekly group post on GitHub Pages: one question, what you did, one figure/table, what surprised you. Playground is the frozen Marvel snapshot until the language half (week 5) adds text.
 
+### Site layout: one folder, one identity per week
+
+`docs/` is what Pages serves. Structure is fixed:
+
+- `docs/index.html` + `docs/home.css` — front page indexing every week. Add a card when a week ships.
+- `docs/weekN/` — that week's `index.html`, `styles.css`, `app.js`, and `data/`. Self-contained, permanently live, never overwritten.
+- `analyse_weekN.py` at the repo root generates only its own week's JSON into `docs/weekN/data/`.
+- Each week page links back to `../` (wordmark + a nav item, so it survives the mobile breakpoint).
+
+**Hard rule: every week gets a brand-new layout.** Do not copy, adapt, or "evolve" a previous week's page. Start the CSS from an empty file. Concretely, week N must differ from every earlier week in *all* of:
+
+- **typeface pairing** — new display + mono fonts, not last week's;
+- **palette** — new background/accent system, not a recolor of the old variables;
+- **layout paradigm** — if a previous week was full-bleed scroll sections, use a sidebar rail, dashboard grid, horizontal deck, split-screen, canvas, or something else entirely;
+- **navigation and component vocabulary** — new class names, new section chrome, new card/panel shapes.
+
+Reusing week 1's `--ink`/`--paper`/`--lime` variables, its `.section`/`.section-intro`/`.eyebrow` scaffolding, or its giant-`clamp()`-headline rhythm counts as copying. The interactivity bar still only goes up: each week should be more playable than the last. The science stays honest regardless of the skin — representation stated, numbers asserted against the week page, one human check left in.
+
 Final project (weeks 9–13): own domain, own crawl, find something true. Document every model-touched result in `AI_METHODS.md`.
 
 ## Tests (do not spoil)
 
 Closed book, ~60 min, ~25 MC, transfer not trivia. Test 1 = weeks 1–4; Test 2 = weeks 5–8. Help the student *practice* from the week’s “On the test” box. Do not harvest or store test items.
 
-## Agent checklist (Builder / Tool)
+## Agent checklist
 
 1. Fetch the week page.
-2. Confirm mode; refuse Learn solutions.
+2. Confirm mode. Live Learn: no solutions. End-of-day / catch-up: finish all remaining Learn items as study notes in the notebook.
 3. Load data the way the data page specifies; assert `n`, `m`, isolates.
 4. Separate in/out/undirected measurements when the graph is directed.
 5. Plot what the page asks; sanity-check against published numbers.
-6. Leave a short “what I verified by hand” note in the notebook.
+6. Leave a short “what I verified by hand” note on Builder work; on Learn catch-up, leave a catch-up heading plus closed-book takeaways.

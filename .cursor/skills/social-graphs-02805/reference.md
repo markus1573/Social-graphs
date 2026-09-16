@@ -122,6 +122,11 @@ Closed book, student should be able to:
 - Drawing: data vs layout; one conclusion the picture invites that the data does not support
 - Node property vs edge property vs network property
 
+## Readings (local)
+
+- Atlas: `sna_book.pdf` at the personal-repo root (Coscia, 2nd ed., ~916 pages). Week-2 assigned: Ch. 16 (Random Graphs, printed ~237), Ch. 12.1–12.2, Ch. 17.1–17.3, Ch. 18.1, Ch. 19.1.
+- Prefer this file over a web scrape. Atlas uses \(|V|\) for \(n\) and \(\bar k\) for average degree; the course uses \(n\) and \(\langle k\rangle\). For large \(n\), \(\bar k = |V|p \approx p(n-1)\).
+
 ## Links worth knowing
 
 - Course: https://sunelehmann.com/socialgraphs2026-web/
